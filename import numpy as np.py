@@ -103,13 +103,15 @@ def getProj (DIM, numMeas,M,TD_s):
 # numMEas - number of measurements
 # M - list of measurement operators
 # TD_s - Traffic Data subset
+
+# Average projection 
+
 def avgProj (DIM, numMeas,M,TD_s):
     Is = np.zeros([numMeas,DIM]);
     for i in range(numMeas):
-    
         Proj = (np.matmul(M[i],TD_s[i,:].reshape([DIM,1]))).reshape([DIM])
         Is[i,:] = Proj;
-    return nanmean(Is, axis= 0 );
+    return np.nanmean(Is, axis= 0 );
 
 
     # Estimate mu 
